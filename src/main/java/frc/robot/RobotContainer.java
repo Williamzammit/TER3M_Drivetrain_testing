@@ -6,6 +6,9 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.commands.AutoTest_01;
 import frc.robot.commands.DriveWithJoystick;
 import frc.robot.subsystems.DriveBase;
 
@@ -18,10 +21,16 @@ import frc.robot.subsystems.DriveBase;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DriveBase drivebase = new DriveBase();
+  private final AutoTest_01 autotest_01 = new AutoTest_01(drivebase);
 
   private final XboxController driver = new XboxController(0);
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
+
+
+  SendableChooser<Command> m_chooser = new SendableChooser<>();
   public RobotContainer() {
+
+    m_chooser.setDefaultOption("AutoTest_01", autotest_01);
 
     drivebase.setDefaultCommand(new DriveWithJoystick(drivebase, () -> driver.getLeftY(), () -> driver.getLeftX()));
 
@@ -42,8 +51,8 @@ public class RobotContainer {
    *
    * @return the command to run in autonomous
    */
-  public void getAutonomousCommand() {
+  public Command getAutonomousCommand() {
     //An ExampleCommand will run in autonomous
-    //return m_autoCommand;
+    return m_chooser.getSelected();
   }
 }

@@ -10,6 +10,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import static frc.robot.Constants.*;
 
@@ -57,9 +58,25 @@ public class DriveBase extends SubsystemBase {
   public void simulationPeriodic() {
     // This method will be called once per scheduler run during simulation
   }
+
+  public void setBrakeMode(){
+    leftLeader.setNeutralMode(NeutralMode.Brake);
+    leftFollower.setNeutralMode(NeutralMode.Brake);
+    rightLeader.setNeutralMode(NeutralMode.Brake);    
+    rightFollower.setNeutralMode(NeutralMode.Brake);
+
+  }
+  public void setCoastMode(){
+    leftLeader.setNeutralMode(NeutralMode.Coast);
+    leftFollower.setNeutralMode(NeutralMode.Coast);
+    rightLeader.setNeutralMode(NeutralMode.Coast);    
+    rightFollower.setNeutralMode(NeutralMode.Coast);
+  }
+  
   public void arcadeDrive(double throttle, double rotation) {
     rotation *= -1;
 
+    SmartDashboard.putNumber("Throttle", throttle);
     drive.arcadeDrive(throttle, rotation);
   }
 }
