@@ -77,6 +77,9 @@ public class DriveBase extends SubsystemBase {
     rotation *= -1;
 
     SmartDashboard.putNumber("Throttle", throttle);
+    //remember rotation is multiplied by -1 
+    //so the value being passed to arcade drive is actually the opposite of what is displayed on shuffleboard
+    SmartDashboard.putNumber("Rotation", rotation);
     drive.arcadeDrive(throttle, rotation);
   }
 }

@@ -22,7 +22,7 @@ public class AutoTest_01 extends CommandBase {
   public AutoTest_01(DriveBase driveBase) {
     this.driveBase = driveBase;
 
-    target = (int)(6*50);
+    target = (int)(12*50);
     
     addRequirements(driveBase);
     // Use addRequirements() here to declare subsystem dependencies.
@@ -45,19 +45,19 @@ public class AutoTest_01 extends CommandBase {
       driveBase.arcadeDrive(0, 0);
     }
     if(counter < firstTurn && counter > 0){
-      driveBase.arcadeDrive(0, 0.25);
+      driveBase.arcadeDrive(0, 0.5);
     }
     if(counter < firstStop && counter > firstTurn){
       driveBase.arcadeDrive(0, 0);
     }
     if(counter < secondTurn && counter > firstStop){
-      driveBase.arcadeDrive(0, -0.25);
+      driveBase.arcadeDrive(0, -0.5);
     }
     if(counter < secondStop && counter > secondTurn){
       driveBase.arcadeDrive(0, 0);
     }
     if(counter < finalTurn && counter > secondStop){
-      driveBase.arcadeDrive(0, -0.25);
+      driveBase.arcadeDrive(0, 0.4);
     }
 
 
