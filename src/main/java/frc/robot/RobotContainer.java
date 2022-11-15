@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.AutoTest_01;
+import frc.robot.commands.AutoTest_02;
 import frc.robot.commands.DriveWithJoystick;
 import frc.robot.subsystems.DriveBase;
 
@@ -22,6 +23,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DriveBase drivebase = new DriveBase();
   private final AutoTest_01 autotest_01 = new AutoTest_01(drivebase);
+  private final AutoTest_02 autotest_02 = new AutoTest_02(drivebase);
 
   private final XboxController driver = new XboxController(0);
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -31,6 +33,7 @@ public class RobotContainer {
   public RobotContainer() {
 
     m_chooser.setDefaultOption("AutoTest_01", autotest_01);
+    m_chooser.addOption("AutoTest_02", autotest_02);
 
     drivebase.setDefaultCommand(new DriveWithJoystick(drivebase, () -> driver.getLeftY(), () -> driver.getLeftX()));
 
