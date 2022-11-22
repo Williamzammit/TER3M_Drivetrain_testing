@@ -73,6 +73,78 @@ public class AutoTest_03 extends CommandBase {
     if(counter > 0 && counter < checkpoints[0]){
       driveBase.arcadeDrive(rotationValue1, 0.0);
     }
+    if(counter >= checkpoints[0] && counter < checkpoints[1]){
+      driveBase.arcadeDrive(0.0, 0.0);
+    }
+    if(counter >= checkpoints[1] && counter < checkpoints[2]){
+      driveBase.arcadeDrive(0.0, distanceValues[0]);
+    }
+    /*4*/
+    if(counter >= checkpoints[2] && counter < checkpoints[3]){
+      driveBase.arcadeDrive(0.0, 0.0);
+    }
+    if(counter >= checkpoints[3] && counter < checkpoints[4]){
+      driveBase.arcadeDrive(0.0, rotationValue1);
+    }
+    if(counter >= checkpoints[4] && counter < checkpoints[5]){
+      driveBase.arcadeDrive(0.0, 0.0);
+    }
+    if(counter >= checkpoints[5] && counter < checkpoints[6]){
+      driveBase.arcadeDrive(0.0, distanceValues[1]);
+    }
+    /*8*/
+    if(counter >= checkpoints[6] && counter < checkpoints[7]){
+      driveBase.arcadeDrive(0.0, 0.0);
+    }
+    if(counter >= checkpoints[7] && counter < checkpoints[8]){
+      driveBase.arcadeDrive(0.0, rotationValue1);
+    }
+    if(counter >= checkpoints[8] && counter < checkpoints[9]){
+      driveBase.arcadeDrive(0.0, 0.0);
+    }
+    if(counter >= checkpoints[9] && counter < checkpoints[10]){
+      driveBase.arcadeDrive(0.0, distanceValues[2]);
+    }
+    /*12*/
+    if(counter >= checkpoints[10] && counter < checkpoints[11]){
+      driveBase.arcadeDrive(0.0, 0.0);
+    }
+    if(counter >= checkpoints[11] && counter < checkpoints[12]){
+      driveBase.arcadeDrive(0.0, rotationValue1);
+    }
+    if(counter >= checkpoints[12] && counter < checkpoints[13]){
+      driveBase.arcadeDrive(0.0, 0.0);
+    }
+    if(counter >= checkpoints[13] && counter < checkpoints[14]){
+      driveBase.arcadeDrive(0.0, distanceValues[3]);
+    }
+    /*16*/
+    if(counter >= checkpoints[14] && counter < checkpoints[15]){
+      driveBase.arcadeDrive(0.0, 0.0);
+    }
+    if(counter >= checkpoints[15] && counter < checkpoints[16]){
+      driveBase.arcadeDrive(0.0, -rotationValue1);
+    }
+    if(counter >= checkpoints[16] && counter < checkpoints[17]){
+      driveBase.arcadeDrive(0.0, 0.0);
+    }
+    if(counter >= checkpoints[17] && counter < checkpoints[18]){
+      driveBase.arcadeDrive(0.0, distanceValues[4]);
+    }
+    /*20*/
+    if(counter >= checkpoints[18] && counter < checkpoints[19]){
+      driveBase.arcadeDrive(0.0, 0.0);
+    }
+    if(counter >= checkpoints[19] && counter < checkpoints[20]){
+      driveBase.arcadeDrive(0.0, rotationValue1);
+    }
+    if(counter >= checkpoints[20] && counter < checkpoints[21]){
+      driveBase.arcadeDrive(0.0, 0.0);
+    }
+    if(counter >= checkpoints[21] && counter < checkpoints[22]){
+      driveBase.arcadeDrive(0.0, distanceValues[5]);
+    }
+    /*20*/
 
     counter++;
     SmartDashboard.putNumber("COUNTER", counter);
