@@ -14,9 +14,9 @@ public class AutoTest_03 extends CommandBase {
   private int target;
   private int angle;
   private double rotationValue1;
-  private int[] distances = {0, 0, 0, 0, 0, 0};
-  private double[] distanceValues = {0, 0, 0, 0, 0, 0};
-  private int[] checkpoints = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+  private int[] distances = new int[6];
+  private double[] distanceValues = new double[6];
+  private int[] checkpoints = new int[23];
 
 
   public AutoTest_03(DriveBase driveBase) {
