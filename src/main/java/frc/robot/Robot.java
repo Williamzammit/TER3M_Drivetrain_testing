@@ -29,12 +29,9 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
-    //autonomousCommand = new AutoTest_01();
     
     
     m_robotContainer = new RobotContainer();
-    //SmartDashboard.putData("Auto_Test", autonomousCommand);
-
   }
 
   /**
