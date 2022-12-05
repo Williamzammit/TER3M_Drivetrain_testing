@@ -33,10 +33,7 @@ public class DriveBase extends SubsystemBase {
     leftFollower.configFactoryDefault();
     rightFollower.configFactoryDefault();
 
-    leftLeader.setNeutralMode(NeutralMode.Coast);
-    rightLeader.setNeutralMode(NeutralMode.Coast);
-    leftFollower.setNeutralMode(NeutralMode.Coast);
-    rightFollower.setNeutralMode(NeutralMode.Coast);
+    setCoastMode();
 
     SupplyCurrentLimitConfiguration supplyLimit = new SupplyCurrentLimitConfiguration(true, 30, 35, 1.0);
     leftLeader.configSupplyCurrentLimit(supplyLimit);

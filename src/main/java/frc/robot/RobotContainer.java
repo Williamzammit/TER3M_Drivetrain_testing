@@ -8,10 +8,7 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.commands.AutoTest_01;
-import frc.robot.commands.AutoTest_02;
-import frc.robot.commands.AutoTest_03;
-import frc.robot.commands.DriveWithJoystick;
+import frc.robot.commands.*;
 import frc.robot.subsystems.DriveBase;
 
 /**
@@ -61,7 +58,7 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
-    //An ExampleCommand will run in autonomous
+    //If no commands is selected on the network table, it will return the default option
     return m_chooser.getSelected();
   }
 }
