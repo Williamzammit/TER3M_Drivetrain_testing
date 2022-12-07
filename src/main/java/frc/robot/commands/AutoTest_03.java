@@ -7,14 +7,14 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.DriveBase;
-  
+
 public class AutoTest_03 extends CommandBase {
   private final DriveBase driveBase;
   private int counter = 0;
   private int target;
-  private int angle;
+  private double angle;
   private double rotationValue1;
-  private int[] distances = new int[6];
+  private double[] distances = new double[6];
   private double[] distanceValues = new double[6];
   private int[] checkpoints = new int[23];
 
@@ -32,6 +32,7 @@ public class AutoTest_03 extends CommandBase {
 */
     angle = 90;
     rotationValue1 = Math.pow((angle/10635), (1/6.05));
+    SmartDashboard.putNumber("Rotation Value", rotationValue1);
 
 /*
     Distance Formula
@@ -48,8 +49,10 @@ public class AutoTest_03 extends CommandBase {
     distances[4] = 49;
     distances[5] = 17;
 
-    for (int i = 0; i <= distanceValues.length; i++){
+    for (int i = 0; i < distanceValues.length; i++){
     distanceValues[i] = Math.pow(distances[i]/1668, (1/4.7));
+    SmartDashboard.putNumber("Value " + i, distanceValues[i]);
+
     }
 
     addRequirements(driveBase);
@@ -59,7 +62,7 @@ public class AutoTest_03 extends CommandBase {
   @Override
   public void initialize() {
     checkpoints[0] = 50;
-    for (int i = 1; i <= checkpoints.length; i++){
+    for (int i = 1; i < checkpoints.length; i++){
       checkpoints[i] = 50 + checkpoints[i-1];
     }
   }
@@ -71,13 +74,13 @@ public class AutoTest_03 extends CommandBase {
       driveBase.arcadeDrive(0.0, 0.0);
     }
     if(counter > 0 && counter < checkpoints[0]){
-      driveBase.arcadeDrive(rotationValue1, 0.0);
+      driveBase.arcadeDrive(0.0, rotationValue1);
     }
     if(counter >= checkpoints[0] && counter < checkpoints[1]){
       driveBase.arcadeDrive(0.0, 0.0);
     }
     if(counter >= checkpoints[1] && counter < checkpoints[2]){
-      driveBase.arcadeDrive(0.0, distanceValues[0]);
+      driveBase.arcadeDrive(-distanceValues[0], 0.0);
     }
     /*4*/
     if(counter >= checkpoints[2] && counter < checkpoints[3]){
@@ -90,7 +93,7 @@ public class AutoTest_03 extends CommandBase {
       driveBase.arcadeDrive(0.0, 0.0);
     }
     if(counter >= checkpoints[5] && counter < checkpoints[6]){
-      driveBase.arcadeDrive(0.0, distanceValues[1]);
+      driveBase.arcadeDrive(-distanceValues[1], 0.0);
     }
     /*8*/
     if(counter >= checkpoints[6] && counter < checkpoints[7]){
@@ -103,7 +106,7 @@ public class AutoTest_03 extends CommandBase {
       driveBase.arcadeDrive(0.0, 0.0);
     }
     if(counter >= checkpoints[9] && counter < checkpoints[10]){
-      driveBase.arcadeDrive(0.0, distanceValues[2]);
+      driveBase.arcadeDrive(-distanceValues[2], 0.0);
     }
     /*12*/
     if(counter >= checkpoints[10] && counter < checkpoints[11]){
@@ -116,7 +119,7 @@ public class AutoTest_03 extends CommandBase {
       driveBase.arcadeDrive(0.0, 0.0);
     }
     if(counter >= checkpoints[13] && counter < checkpoints[14]){
-      driveBase.arcadeDrive(0.0, distanceValues[3]);
+      driveBase.arcadeDrive(-distanceValues[3], 0.0);
     }
     /*16*/
     if(counter >= checkpoints[14] && counter < checkpoints[15]){
@@ -129,7 +132,7 @@ public class AutoTest_03 extends CommandBase {
       driveBase.arcadeDrive(0.0, 0.0);
     }
     if(counter >= checkpoints[17] && counter < checkpoints[18]){
-      driveBase.arcadeDrive(0.0, distanceValues[4]);
+      driveBase.arcadeDrive(-distanceValues[4], 0.0);
     }
     /*20*/
     if(counter >= checkpoints[18] && counter < checkpoints[19]){
@@ -142,9 +145,9 @@ public class AutoTest_03 extends CommandBase {
       driveBase.arcadeDrive(0.0, 0.0);
     }
     if(counter >= checkpoints[21] && counter < checkpoints[22]){
-      driveBase.arcadeDrive(0.0, distanceValues[5]);
+      driveBase.arcadeDrive(-distanceValues[5], 0.0);
     }
-    /*20*/
+    /*24*/
 
     counter++;
     SmartDashboard.putNumber("COUNTER", counter);

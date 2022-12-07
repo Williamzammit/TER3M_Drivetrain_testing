@@ -35,10 +35,10 @@ public class RobotContainer {
   public RobotContainer() {
 
     //Default option here
-    m_chooser.setDefaultOption("AutoTest_03", autotest_03);
+    m_chooser.setDefaultOption("AutoTest_01", autotest_01);
 
     //Other options here
-    m_chooser.addOption("AutoTest_01", autotest_01);
+    m_chooser.addOption("AutoTest_03", autotest_03);
     m_chooser.addOption("AutoTest_02", autotest_02);
 
     drivebase.setDefaultCommand(new DriveWithJoystick(drivebase, () -> driver.getLeftY(), () -> driver.getLeftX()));

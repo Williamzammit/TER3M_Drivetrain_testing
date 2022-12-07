@@ -29,7 +29,7 @@ public class AutoTest_01 extends CommandBase {
     target = (int)(12*50);
     
     //1760x - 713 -- old formula
-    angle = 45;
+    angle = 90;
     david = angle/10635;
     rotationValue01 = Math.pow(david, (1/6.05));
     
