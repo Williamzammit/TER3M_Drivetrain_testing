@@ -15,7 +15,6 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import static frc.robot.Constants.*;
 
 public class DriveBase extends SubsystemBase {
-  /** Creates a new ExampleSubsystem. */
 
   private final WPI_TalonSRX leftLeader = new WPI_TalonSRX(FRONT_LEFT_DRIVE);
   private final WPI_TalonSRX rightLeader = new WPI_TalonSRX(FRONT_RIGHT_DRIVE);
