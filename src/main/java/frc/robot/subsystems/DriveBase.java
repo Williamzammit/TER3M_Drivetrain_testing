@@ -15,7 +15,6 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import static frc.robot.Constants.*;
 
 public class DriveBase extends SubsystemBase {
-  /** Creates a new ExampleSubsystem. */
 
   private final WPI_TalonSRX leftLeader = new WPI_TalonSRX(FRONT_LEFT_DRIVE);
   private final WPI_TalonSRX rightLeader = new WPI_TalonSRX(FRONT_RIGHT_DRIVE);
@@ -33,10 +32,7 @@ public class DriveBase extends SubsystemBase {
     leftFollower.configFactoryDefault();
     rightFollower.configFactoryDefault();
 
-    leftLeader.setNeutralMode(NeutralMode.Coast);
-    rightLeader.setNeutralMode(NeutralMode.Coast);
-    leftFollower.setNeutralMode(NeutralMode.Coast);
-    rightFollower.setNeutralMode(NeutralMode.Coast);
+    setCoastMode();
 
     SupplyCurrentLimitConfiguration supplyLimit = new SupplyCurrentLimitConfiguration(true, 30, 35, 1.0);
     leftLeader.configSupplyCurrentLimit(supplyLimit);
@@ -77,8 +73,6 @@ public class DriveBase extends SubsystemBase {
     rotation *= -1;
 
     SmartDashboard.putNumber("Throttle", throttle);
-    //remember rotation is multiplied by -1 
-    //so the rotation value being passed to arcade drive is actually the opposite of what is displayed on shuffleboard
     SmartDashboard.putNumber("Rotation", rotation);
     drive.arcadeDrive(throttle, rotation);
   }
